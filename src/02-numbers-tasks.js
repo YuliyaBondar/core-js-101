@@ -70,8 +70,8 @@ function getAverage(value1, value2) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 }
 
 /**
@@ -109,8 +109,12 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const multiplication = x1 * x2 + y1 * y2;
+  const lengthA = Math.sqrt(x1 ** 2 + y1 ** 2);
+  const lengthB = Math.sqrt(x2 ** 2 + y2 ** 2);
+  const cos = multiplication / (lengthA * lengthB);
+  return Math.acos(cos);
 }
 
 /**
