@@ -116,31 +116,54 @@ function fromJSON(proto, json) {
  */
 
 const cssSelectorBuilder = {
+  // result: '',
+
   element(/* value */) {
+    // const tagSelector = { cssSelectorBuilder };
+    // tagSelector.result = `${this.result}${value}`;
+    // return tagSelector;
     throw new Error('Not implemented');
   },
 
   id(/* value */) {
+    // const idSelector = { cssSelectorBuilder };
+    // idSelector.result = `${this.result}#${value}`;
+    // return idSelector;
     throw new Error('Not implemented');
   },
 
   class(/* value */) {
+    // const classSelector = { cssSelectorBuilder };
+    // classSelector.result = `${this.result}.${value}`;
+    // return classSelector;
     throw new Error('Not implemented');
   },
 
   attr(/* value */) {
+    // const attrSelector = { cssSelectorBuilder };
+    // attrSelector.result = `${this.result}[${value}]`;
+    // return attrSelector;
     throw new Error('Not implemented');
   },
 
   pseudoClass(/* value */) {
+    // const pseudoClassSelector = { cssSelectorBuilder };
+    // pseudoClassSelector.result = `${this.result}:${value}`;
+    // return pseudoClassSelector;
     throw new Error('Not implemented');
   },
 
   pseudoElement(/* value */) {
+    // const pseudoElementSelector = { cssSelectorBuilder };
+    // pseudoElementSelector.result = `${this.result}::${value}`;
+    // return pseudoElementSelector;
     throw new Error('Not implemented');
   },
 
   combine(/* selector1, combinator, selector2 */) {
+    // const combineSelector = { cssSelectorBuilder };
+    // combineSelector.result = `${selector1.result} ${combinator} ${selector2.result}`;
+    // return combineSelector;
     throw new Error('Not implemented');
   },
 };

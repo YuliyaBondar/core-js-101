@@ -30,6 +30,13 @@
  */
 function willYouMarryMe(/* isPositiveAnswer */) {
   throw new Error('Not implemented');
+  // return new Promise((resolve, reject) => {
+  //   if (isPositiveAnswer) {
+  //     resolve('Hooray!!! She said "Yes"!');
+  //   } else {
+  //     reject('Oh no, she said "No".');
+  //   }
+  // });
 }
 
 
@@ -49,6 +56,8 @@ function willYouMarryMe(/* isPositiveAnswer */) {
  *
  */
 function processAllPromises(/* array */) {
+  // return Promise.allSettled(array)
+  //   .then((results) => results.forEach((result) => result.status));
   throw new Error('Not implemented');
 }
 
@@ -72,6 +81,13 @@ function processAllPromises(/* array */) {
  *
  */
 function getFastestPromise(/* array */) {
+  // const promises = new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve('second');
+  //   }, 500);
+  // });
+  // const p = Promise.all(promises).then((res) => res);
+  // return p;
   throw new Error('Not implemented');
 }
 
