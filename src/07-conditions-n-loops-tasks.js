@@ -168,8 +168,10 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const a = Math.hypot((point.x - circle.center.x), (point.y - circle.center.y));
+  const b = Math.sqrt(circle.radius * circle.radius);
+  return a < b;
 }
 
 
@@ -274,8 +276,18 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let arr = ccn.toString().split('').reverse();
+  arr = arr.map((currentValue, index) => {
+    let res;
+    if (index % 2 !== 0) {
+      res = (2 * currentValue > 9) ? 2 * currentValue - 9 : 2 * currentValue;
+    } else {
+      res = currentValue;
+    }
+    return res;
+  });
+  return arr.reduce((acc, value) => Number(acc) + Number(value)) % 10 === 0;
 }
 
 /**
@@ -368,8 +380,17 @@ function toNaryString(/* num, n */) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/* pathes */) {
-  throw new Error('Not implemented');
+function getCommonDirectoryPath(pathes) {
+  let commonPath = '';
+  for (let i = 0; i < pathes[0].length; i += 1) {
+    for (let j = 1; j < pathes.length; j += 1) {
+      if (pathes[0].charAt(i) !== pathes[j].charAt(i)) {
+        return commonPath.substring(0, commonPath.lastIndexOf('/') + 1);
+      }
+    }
+    commonPath += pathes[0].charAt(i);
+  }
+  return commonPath.substring(0, commonPath.lastIndexOf('/') + 1);
 }
 
 
