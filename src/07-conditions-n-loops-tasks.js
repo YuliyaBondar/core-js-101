@@ -137,8 +137,21 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  // throw new Error('Not implemented');
+  const x1 = rect1.top;
+  const x2 = rect1.top + rect1.width;
+  const x3 = rect2.top;
+  const x4 = rect2.top + rect2.width;
+  const y1 = rect1.left + rect1.height;
+  const y2 = rect1.left;
+  const y3 = rect2.left + rect2.height;
+  const y4 = rect2.left;
+
+  if (x3 > x2 || y3 < y2 || x1 > x4 || y1 < y4) {
+    return false;
+  }
+  return true;
 }
 
 
@@ -338,8 +351,17 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/* str */) {
-  throw new Error('Not implemented');
+function isBracketsBalanced(str) {
+  // throw new Error('Not implemented');
+  const bracketsArr = ['[]', '()', '<>', '{}'];
+  let result = str;
+  for (let i = 0; i < bracketsArr.length; i += 1) {
+    while (result.includes(bracketsArr[i])) {
+      result = result.replace(bracketsArr[i], '');
+      i = 0;
+    }
+  }
+  return !result;
 }
 
 
@@ -363,8 +385,16 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  // throw new Error('Not implemented');
+  let string = '';
+  let currentNumber = num;
+  while (currentNumber >= n) {
+    string += currentNumber % n;
+    currentNumber = Math.floor(currentNumber / n);
+  }
+  string += (currentNumber * n) / n;
+  return string.split('').reverse().join('');
 }
 
 
@@ -412,8 +442,22 @@ function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  // throw new Error('Not implemented');
+  const m1ColRows = m1.length;
+  const m1ColColumns = m1[0].length;
+  const m2ColColumns = m2[0].length;
+  const result = new Array(m1ColRows);
+  for (let i = 0; i < m1ColRows; i += 1) {
+    result[i] = new Array(m2ColColumns);
+    for (let j = 0; j < m2ColColumns; j += 1) {
+      result[i][j] = 0;
+      for (let x = 0; x < m1ColColumns; x += 1) {
+        result[i][j] += m1[i][x] * m2[x][j];
+      }
+    }
+  }
+  return result;
 }
 
 
